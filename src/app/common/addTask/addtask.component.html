@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="page-header">
+      <h1>{{title}}</h1>
+    </div>
+    <div class="form-inline">
+      <div class="form-group">
+        <input type="email" class="form-control" [(ngModel)]="task" placeholder="Task">
+      </div>
+      <button class="btn btn-primary" (click)="addTask()">Add Task</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <ul class="list-group">Tareas Pendientes
+      <li class="list-group-item" *ngFor="let task of taskes; let i = index" (click)="moveTaskToinProgress(i)">{{task}}</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul class="list-group">Tareas en Curso
+      <li class="list-group-item" *ngFor="let taskInProgres of taskesInProgres; let j = index" (click)="moveInProgressTaskToEnd(j)">{{taskInProgres}}</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <ul class="list-group">Tareas Terminada
+      <li class="list-group-item" *ngFor="let taskEnd of taskesEnd">{{taskEnd}}</li>
+    </ul>
+  </div>
+</div>
